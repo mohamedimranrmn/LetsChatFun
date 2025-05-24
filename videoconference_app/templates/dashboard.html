@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard - LetsChatFun{% endblock %}
-
+{% block title %}Meeting - LetsChatFun{% endblock %}
 {% block content %}
 <div class="dashboard">
-    <h1>Welcome, {{ name }}!</h1>
+    <h1>Welcome, {{ name}}!</h1>
     <a href="{% url 'meeting' %}" class="button">New Meeting</a>
     <a href="{% url 'join_room' %}" class="button">Join Meeting</a>
     <a href="{% url 'logout' %}" class="button">Logout</a>

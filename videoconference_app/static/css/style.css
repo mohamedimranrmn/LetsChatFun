@@ -1,115 +1,184 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  width: 100%;
-  background: linear-gradient(135deg, #009579, #006653);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #009579, #006653);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
+/* Form styles (for login/register pages) */
 .container {
-  width: 100%;
-  max-width: 430px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+    width: 100%;
+    max-width: 430px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .form {
-  padding: 2rem;
-  width: 100%;
+    padding: 2rem;
+    width: 100%;
 }
 
 .form header {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .form input {
-  height: 50px;
-  width: 100%;
-  padding: 0 15px;
-  font-size: 16px;
-  margin-bottom: 1.2rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.3s ease;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 16px;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .form input:focus {
-  border-color: #009579;
+    border-color: #009579;
 }
 
 .form input.button {
-  background-color: #009579;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    background-color: #009579;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .form input.button:hover {
-  background-color: #007a60;
+    background-color: #007a60;
+}
+
+/* Home page styles */
+.intro {
+    text-align: center;
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.intro h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.intro h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Dashboard styles */
+.dashboard {
+    text-align: center;
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.dashboard h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Button styles for anchor tags */
+.button {
+    display: inline-block;
+    background-color: #009579;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    margin: 8px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #007a60;
+    text-decoration: none;
 }
 
 .signup {
-  text-align: center;
-  font-size: 0.95rem;
-  margin-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 1rem;
 }
 
 .signup label, .signup a {
-  color: #009579;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
+    color: #009579;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .signup label:hover, .signup a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 p[style*="color: red"] {
-  background: #ffebee;
-  border: 1px solid #ffcdd2;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 0.9rem;
+    background: #ffebee;
+    border: 1px solid #ffcdd2;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
-  .form {
-    padding: 1.5rem;
-  }
+    .form, .intro, .dashboard {
+        padding: 1.5rem;
+    }
 
-  .form header {
-    font-size: 1.6rem;
-  }
+    .form header, .intro h1, .dashboard h1 {
+        font-size: 1.6rem;
+    }
 
-  .form input {
-    height: 45px;
-    font-size: 15px;
-  }
+    .intro h2 {
+        font-size: 1rem;
+    }
 
-  .form input.button {
-    font-size: 1rem;
-  }
+    .form input, .button {
+        height: 45px;
+        font-size: 15px;
+    }
+
+    .form input.button, .button {
+        font-size: 1rem;
+    }
 }

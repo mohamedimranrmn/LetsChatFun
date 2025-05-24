@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <style>
         #root {
@@ -8,8 +7,6 @@
             }
     </style>
 </head>
-
-
 <body>
     <div id="root"></div>
 </body>
@@ -22,22 +19,12 @@ window.onload = function () {
         const result = Object.fromEntries(urlSearchParams.entries());
         return result;
     }
-
-
-        // Generate a Token by calling a method.
-        // @param 1: appID
-        // @param 2: serverSecret
-        // @param 3: Room ID
-        // @param 4: User ID
-        // @param 5: Username
     const roomID = getUrlParams(window.location.href)['roomID'] || (Math.floor(Math.random() * 10000) + "");
     const userID = Math.floor(Math.random() * 10000) + "";
     const userName = "userName" + userID;
     const appID = 1124510882;
     const serverSecret = "fadcfda0180a3eb0c9606aae5b036b4d";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, userID, userName);
-
-
         const zp = ZegoUIKitPrebuilt.create(kitToken);
         zp.joinRoom({
             container: document.querySelector("#root"),
@@ -48,7 +35,6 @@ window.onload = function () {
             scenario: {
                 mode: ZegoUIKitPrebuilt.VideoConference,
             },
-
            	turnOnMicrophoneWhenJoining: true,
            	turnOnCameraWhenJoining: true,
            	showMyCameraToggleButton: true,
@@ -64,5 +50,4 @@ window.onload = function () {
             });
 }
 </script>
-
 </html>

@@ -1,11 +1,12 @@
-{% load static %}
+{% extends 'base.html' %}
+{% block title %}Login - LetsChatFun{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <div class="container">
@@ -27,10 +28,11 @@
       </form>
       <div class="signup">
         <span class="signup">Don't have an account?
-         <a href="{% url 'register' %}"><label for="check">Signup</label></a>
+         <a href="{% url 'register' %}"><label for="check">Sign Up</label></a>
         </span>
       </div>
     </div>
   </div>
 </body>
 </html>
+{% endblock %}

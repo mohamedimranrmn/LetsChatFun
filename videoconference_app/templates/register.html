@@ -1,24 +1,25 @@
-{% load static %}
+{% extends 'base.html' %}
+{% block title %}Register - LetsChatFun{% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <div class="container">
     <div class="registration form">
-      <header>Signup</header>
+      <header>Sign Up</header>
       <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
         <input type="text" placeholder="Enter First name" name="first_name">
         <input type="text" placeholder="Enter Last name" name="last_name">
-        <input type="text" placeholder="Enter username" name="email">
+        <input type="text" placeholder="Enter email id" name="email">
         <input type="password" placeholder="Enter Password" name="password1">
         <input type="password" placeholder="Confirm Password" name="password2">
-        <input type="submit" class="button" value="Signup">
+        <input type="submit" class="button" value="Sign Up">
         <center>
           {% if error %}
           <p style="color: red;">{{ error }}</p>
@@ -28,10 +29,11 @@
       </form>
       <div class="signup">
         <span class="signup">Already have an account?
-          <a href="{% url 'login' %}"><label for="check">Signin</label></a>
+          <a href="{% url 'login' %}"><label for="check">Sign In</label></a>
         </span>
       </div>
     </div>
   </div>
 </body>
 </html>
+{% endblock %}

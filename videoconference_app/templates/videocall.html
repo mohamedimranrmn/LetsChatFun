@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
-{% block title %}Meeting - LetsChatFun{% endblock %}
-{% block content %}
-<style>
-    #root {
-        width: 100vw;
-        height: 100vh;
-    }
-</style>
-
-<div id="root"></div>
-
+<html>
+<head>
+    <style>
+        #root {
+            width: 100vw;
+            height: 100vh;
+            }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
 <script src="https://unpkg.com/@zegocloud/zego-uikit-prebuilt/zego-uikit-prebuilt.js"></script>
 <script>
 window.onload = function () {
@@ -19,36 +19,34 @@ window.onload = function () {
         const result = Object.fromEntries(urlSearchParams.entries());
         return result;
     }
-
-    const roomID = "{{ room_id|default:'' }}" || (Math.floor(Math.random() * 10000) + "");
+    const roomID = getUrlParams(window.location.href)['roomID'] || (Math.floor(Math.random() * 10000) + "");
     const userID = Math.floor(Math.random() * 10000) + "";
-    const userName = "{{name}}";
+    const userName = "{{name}}"
     const appID = 1124510882;
     const serverSecret = "fadcfda0180a3eb0c9606aae5b036b4d";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, userID, userName);
-
-    const zp = ZegoUIKitPrebuilt.create(kitToken);
-    zp.joinRoom({
-        container: document.querySelector("#root"),
-        sharedLinks: [{
-            name: 'Personal Link',
-            url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
-        }],
-        scenario: {
-            mode: ZegoUIKitPrebuilt.VideoConference,
-        },
-        turnOnMicrophoneWhenJoining: false,
-        turnOnCameraWhenJoining: false,
-        showMyCameraToggleButton: true,
-        showMyMicrophoneToggleButton: true,
-        showAudioVideoSettingsButton: true,
-        showScreenSharingButton: true,
-        showTextChat: true,
-        showUserList: true,
-        maxUsers: 10,
-        layout: "Auto",
-        showLayoutButton: true,
-    });
+        const zp = ZegoUIKitPrebuilt.create(kitToken);
+        zp.joinRoom({
+            container: document.querySelector("#root"),
+            sharedLinks: [{
+                name: 'Personal link',
+                url: window.location.protocol + '//' + window.location.host  + window.location.pathname + '?roomID=' + roomID,
+            }],
+            scenario: {
+                mode: ZegoUIKitPrebuilt.VideoConference,
+            },
+           	turnOnMicrophoneWhenJoining: false,
+           	turnOnCameraWhenJoining: false,
+           	showMyCameraToggleButton: true,
+           	showMyMicrophoneToggleButton: true,
+           	showAudioVideoSettingsButton: true,
+           	showScreenSharingButton: true,
+           	showTextChat: true,
+           	showUserList: true,
+           	maxUsers: 10,
+           	layout: "Auto",
+           	showLayoutButton: true,
+            });
 }
 </script>
-{% endblock %}
+</html>

@@ -15,8 +15,8 @@
       <form action="{% url 'register' %}" method="POST">
         {% csrf_token %}
         <input type="text" placeholder="Enter First name" name="first_name">
-        <input type="text" placeholder="Enter Last name" name="last_name">
-        <input type="text" placeholder="Enter email id" name="email">
+        <input type="text" placeholder="Enter Last name (optional)" name="last_name">
+        <input type="text" placeholder="Enter username" name="username">
         <input type="password" placeholder="Enter Password" name="password1">
         <input type="password" placeholder="Confirm Password" name="password2">
         <input type="submit" class="button" value="Sign Up">

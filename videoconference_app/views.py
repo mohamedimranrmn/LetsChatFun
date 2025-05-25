@@ -1,7 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib.admin.views.decorators import staff_member_required
+from . import admin
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import VideoConference
+
 
 def index(request):
     return render(request, 'index.html')
@@ -48,3 +55,29 @@ def join_room(request):
         roomID = request.POST['roomID']
         return redirect("/meeting?roomID=" + roomID)
     return render(request, 'joinroom.html')
+
+@login_required
+def meeting_view(request, room_id):
+    conference = get_object_or_404(VideoConference, room_id=room_id)
+    full_name = request.user.first_name + " " + request.user.last_name
+    return render(request, "videocall.html", {
+        "name": full_name,
+        "room_id": room_id
+    })
+
+@login_required
+def admin_panel(request):
+    if not request.user.is_superuser:
+        return redirect('/dashboard')  # restrict access
+
+    users = User.objects.all()
+    rooms = VideoConference.objects.all()
+    return render(request, 'adminpanel.html', {'users': users, 'rooms': rooms})
+
+@csrf_exempt
+@login_required
+def delete_user(request, user_id):
+    if request.method == "POST" and request.user.is_superuser:
+        User.objects.filter(id=user_id).delete()
+    return redirect('admin_panel')
+
